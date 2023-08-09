@@ -22,7 +22,7 @@ const ReactHookForm = () => {
             name='firstName'
             placeholder='Tu Nombre'
             id='firstName'
-            {...register('firstName')}
+            {...register('firstName', { required: true, maxLength: 20 })}
           />
 
           <label htmlFor='lastName'>Apellido</label>
@@ -31,7 +31,7 @@ const ReactHookForm = () => {
             name='lastName'
             placeholder='Tu Apellido'
             id='lastName'
-            {...register('lastName')}
+            {...register('lastName', { pattern: /^[A-Za-z]+$/i })}
           />
 
           <label htmlFor='age'>Edad</label>
