@@ -11,8 +11,24 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.header__now-playing {
+    font-size: .6rem;
+
+}
+
+.header__song-detail {
+    font-size: 1rem;
+}
+
+.header__now-playing-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: flex-start;
+}
+
 .header__input-search {
-    width: 50%;
+    width: 40%;
     height: 30px;
     border-radius: 5px;
     border: 1px solid #ccc;

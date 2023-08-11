@@ -13,6 +13,7 @@ function SongProvider ({ children }) {
   const [list, setList] = useState([]) // Lista de canciones
   const [loading, setLoading] = useState(true) // ¿Esta cargando?
   const [selectedSong, setSelectedSong] = useState({}) // Canción seleccionada
+  const [search, setSearch] = useState('') // Guardo la palabra que busco
 
   // Simular una llamada a la API con la lista de canciones
   useEffect(() => {
@@ -27,7 +28,9 @@ function SongProvider ({ children }) {
     list,
     loading,
     selectedSong,
-    setSelectedSong
+    setSelectedSong,
+    search,
+    setSearch
   }
 
   return (
