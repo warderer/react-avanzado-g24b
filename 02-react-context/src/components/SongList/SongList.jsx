@@ -1,19 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useSongContext } from '@/hooks/useSongContext'
 import './songlist.css'
-// import canciones from '../../assets/listaCanciones.json'
-import canciones from '@/assets/listaCanciones.json'
 
 const SongList = () => {
-  const [list, setList] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  // Simular una llamada a la API con la lista de canciones
-  useEffect(() => {
-    setTimeout(() => {
-      setList(canciones)
-      setLoading(false)
-    }, 2000)
-  }, [])
+  const { list, loading } = useSongContext()
 
   return (
     <>
