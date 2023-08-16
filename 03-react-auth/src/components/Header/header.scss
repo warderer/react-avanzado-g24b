@@ -19,20 +19,32 @@ $menu-color: #3d3d3d;
 
     &__nav-list {
         display: flex;
+        flex-wrap: wrap;
         list-style: none;
         gap: 20px;
+        margin-bottom: 0;
     }
 
     &__item-link {
         @include header-link;
+        display: inline-block;
 
         &--is-active {
             border-bottom: 2px solid $menu-color;
         }
 
-        &:hover {
-            border-bottom: 2px solid $menu-color;
+        &::after {
+            content: '';
+            display: block;
+            margin-top: 5px;
+            width: 0;
+            height: 2px;
+            background-color: $menu-color;
             transition: 0.3s;
+        }
+
+        &:hover::after {
+            width:100%;
         }
 
 
