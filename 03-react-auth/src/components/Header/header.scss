@@ -32,6 +32,7 @@ $menu-color: #3d3d3d;
 
         &:hover {
             border-bottom: 2px solid $menu-color;
+            transition: 0.3s;
         }
 
 
