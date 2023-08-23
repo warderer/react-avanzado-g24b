@@ -21,9 +21,14 @@ const Secret = () => {
     <>
       <h1>Secret</h1>
       <div>
-        {users.map(user => 
-          {<p></p>}
-          )}
+        {users.map(({ id, first_name, last_name, gender, email}) => 
+        (<div key={id} >
+          <span>{first_name}</span><br />
+          <span>{last_name}</span><br />
+          <span>{gender}</span><br />
+          <span>{email}</span><br />
+        </div>)
+        ) }
       </div>
     </>
   )
