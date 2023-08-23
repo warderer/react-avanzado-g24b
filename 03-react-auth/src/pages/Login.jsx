@@ -2,15 +2,23 @@ import logo from '@/assets/react.svg'
 import '@/styles/form.css'
 import { useState } from 'react'
 import { loginUserService } from '@/services/userService'
+import { useAdminContext } from '@/hooks/useAdmin'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("")
+  const { login } = useAdminContext()
+  const navigate = useNavigate()
 
   const sendData = async (data) => {
     try {
-      const { data: token } = await loginUserService(data)
+      const response = await loginUserService(data)
+      const token = response.data.token
       localStorage.setItem("jwt_token", token)
+      console.log(token)
+      const admin = login(token)
+      navigate(admin ? '/secret' : '/')
     } catch (error) {
       console.error(error)
     }
