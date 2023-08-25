@@ -17,13 +17,7 @@ describe('Funcinalidad del Login', () => {
     cy.visit('/login')
 
     // 2: Act
-    cy.get('input[type="email"]').type("drstrange@marvel.com")
-    cy.get('input[type="email"]').should('have.value', "drstrange@marvel.com")
-
-    cy.get('input[type="password"]').type("multiverso")
-    cy.get('input[type="password"]').should('have.value', "multiverso")
-
-    cy.get('button[type="submit"]').click()
+    cy.login("drstrange@marvel.com", 'multiverso')
 
     cy.wait('@login')
 
@@ -39,15 +33,7 @@ describe('Funcinalidad del Login', () => {
     cy.visit('/login')
 
     // 2: Act
-    cy.get('input[type="email"]').type("superman@dc.com")
-    cy.get('input[type="email"]').should('have.value', "superman@dc.com")
-
-    cy.get('input[type="password"]').type("superman")
-    cy.get('input[type="password"]').should('have.value', "superman")
-
-    cy.get('button[type="submit"]').click()
-
-    cy.wait('@login')
+    cy.login('superman@dc.com', 'superman')
 
     // 3: Assert
     cy.get('h1')
