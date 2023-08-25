@@ -31,4 +31,26 @@ describe('Funcinalidad del Login', () => {
     cy.get('h1')
       .first().contains('Home')
   })
+
+  it("Prueba el login como ADMIN", () => {
+    cy.intercept('POST', 'http://localhost:3000/login').as('login')
+
+    // 1: Arrange
+    cy.visit('/login')
+
+    // 2: Act
+    cy.get('input[type="email"]').type("superman@dc.com")
+    cy.get('input[type="email"]').should('have.value', "superman@dc.com")
+
+    cy.get('input[type="password"]').type("superman")
+    cy.get('input[type="password"]').should('have.value', "superman")
+
+    cy.get('button[type="submit"]').click()
+
+    cy.wait('@login')
+
+    // 3: Assert
+    cy.get('h1')
+      .first().contains('Secret')
+  })
 })
