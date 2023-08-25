@@ -17,7 +17,7 @@ describe('Funcinalidad del Login', () => {
     cy.visit('/login')
 
     // 2: Act
-    cy.login("drstrange@marvel.com", 'multiverso')
+    cy.doLogin("drstrange@marvel.com", 'multiverso')
 
     cy.wait('@login')
 
@@ -33,7 +33,7 @@ describe('Funcinalidad del Login', () => {
     cy.visit('/login')
 
     // 2: Act
-    cy.login('superman@dc.com', 'superman')
+    cy.doLogin('superman@dc.com', 'superman')
 
     // 3: Assert
     cy.get('h1')
